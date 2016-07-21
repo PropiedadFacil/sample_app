@@ -1,9 +1,9 @@
 # config valid only for current version of Capistrano
-lock '3.5.0'
+#lock '3.5.0'
 
 server '162.243.162.100', port: 7117, roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'github.com/PropiedadFacil/sample_app.git'
+set :repo_url,        'https://github.com/PropiedadFacil/sample_app.git'
 set :application,     'sample_app'
 set :user,            'trinimar'
 set :puma_threads,    [4, 16]
