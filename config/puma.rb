@@ -12,7 +12,7 @@ port        ENV['PORT']     || 3000
   # Worker specific setup for Rails 4.1+
   # See: https://devcenter.heroku.com/articles/
   # deploying-rails-applications-with-the-puma-web-server#on-worker-boot
-  ActiveRecord::Base.establish_connection
+  #ActiveRecord::Base.establish_connection
 #end
 
 app_dir = File.expand_path("../..", __FILE__)
