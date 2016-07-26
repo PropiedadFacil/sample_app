@@ -75,6 +75,14 @@ namespace :deploy do
     end
   end
 
+  task :setup_symlinks do
+   on roles(:app) do
+     within current_path do
+       execute :sudo, :ln, "-nfs /home/trinimar/apps/smaple_app/current/config/nginx.conf /etc/nginx/sites-enabled/sample-app.conf"
+     end
+   end
+ end
+
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
