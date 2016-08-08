@@ -1,20 +1,62 @@
 <% provide(:title, @user.name) %>
+<div class="container p-t-md">
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
+  <aside class="col-md-3">
+
+  <div class="panel panel-default panel-profile m-b-md hidden-xs">
+    <div class="panel-heading" style="background-image: url(assets/img/newport.jpeg);"></div>
+    <div class="panel-body text-center">
+      <a href="profile/index.html">
         <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
+      </a>
+
+      <h5 class="panel-title">
+        <a class="text-inherit" href="#"><%= @user.name %></a>
+      </h5>
+      <p><a href="progress.html">184.5 LBS</a></p>
+      <p><span class="dynamicsparkline"></span></p>
+
+
+      <p class="m-b-md">I wish i was not as fat.</p>
+
+      <ul class="panel-menu">
+      <li class="panel-menu-item">
+          <a href="#userModal" class="text-inherit" data-toggle="modal">
+            Updates
+            <h5 class="m-y-0">2</h5>
+          </a>
+        </li>
+
+        <li class="panel-menu-item">
+          <a href="#userModal" class="text-inherit" data-toggle="modal">
+            Friends
+            <h5 class="m-y-0">2</h5>
+          </a>
+        </li>
+
+        <li class="panel-menu-item">
+          <a href="#userModal" class="text-inherit" data-toggle="modal">
+            Followers
+            <h5 class="m-y-0">1</h5>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-6">
+    <div class="panel panel-default m-b-md">
+      <%= render 'shared/micropost_form' %>
+    </div>
     <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
+      <ul class="list-group media-list media-list-stream">
         <%= render @microposts %>
-      </ol>
+      </ul>
       <%= will_paginate @microposts %>
     <% end %>
   </div>
+  <div class="col-md-3">
+    
+  </div>
+</div>
 </div>

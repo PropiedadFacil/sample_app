@@ -1,12 +1,29 @@
+<div class="panel-heading">
+  <button type="button" class="btn btn-xs btn-pill btn-primary"><span class="icon icon-chat"></span> Banter</button>
+  <a href="home-wi.html" class="btn btn-xs btn-pill btn-default"><span class="icon icon-gauge"></span> Weigh In</a>
+</div>
 <%= form_for(@micropost, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+  <div class="panel-body">
+    <ul class="media-list media-list-stream">
+      <li class="media m-b">
+        <a class="media-left" href="#">
+          <img class="media-object img-circle" src="">
+        </a>
+        <div class="media-body">
+          <p><strong><%= @user.name %></strong></p>
+          <%= f.text_area :content, rows:'3', placeholder: "What's on your mind?", class: 'form-control' %>
+        </div>
+      </li>
+    </ul>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
-  <span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-  </span>
+  <div class="panel-footer">
+    <ul class="nav nav-pills">
+      <li role="presentation"><%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %></li>
+      <li role="presentation" class="active pull-right">
+      <span class="icon icon-up"></span><%= f.submit "Post", class: "btn btn-primary" %></li>
+    </ul>
+  </div>
 <% end %>
 
 <script type="text/javascript">
